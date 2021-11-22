@@ -1,0 +1,56 @@
+.background-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url("../../../assets/images/home/background-home-desktop.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    z-index: -1;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    width: clamp(20rem, 28.125rem, 30vw);
+    height: min(28rem, 60vh);
+
+    position: relative;
+    top: 50vh;
+    left: 10vw;
+    transform: translateY(-25%);
+
+    p{
+        font-weight: normal;
+        color: #D0D6F9;
+                
+        &:first-of-type{
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(1.4rem, 1.95vw, 2em);
+            letter-spacing: .1725em;
+        }
+        &:nth-of-type(2){
+            font-size: clamp(6.725rem, 9.5vw, 9.125rem);
+            font-family: 'Bellefair', sans-serif;
+            color: white;
+            margin: 0;
+
+        }
+        &:last-of-type{
+            font-family: 'Barlow', sans-serif;
+            font-size: clamp(.75rem, 1.2vw, 1.125em);
+            width: 100%;
+            line-height: 2em;
+        }
+    }
+}
+@media (max-width: 768px) {
+ .content {
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+ }   
+}
