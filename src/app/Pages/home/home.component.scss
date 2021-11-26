@@ -1,12 +1,12 @@
 .background-image {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
 
     width: 100vw;
     height: 100vh;
 
-    background-image: url("../../../assets/images/home/background-home-desktop.jpg");
+    background-image: url("../../../assets/home/background-home-desktop.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -18,8 +18,8 @@
     width: clamp(20rem, 28.125rem, 30vw);
     height: min(28rem, 60vh);
 
-    position: relative;
-    top: 50vh;
+    position: absolute;
+    top: 50%;
     left: 10vw;
     transform: translateY(-25%);
 
