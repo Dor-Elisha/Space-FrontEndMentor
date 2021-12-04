@@ -1,1 +1,27 @@
-<p>crew works!</p>
+<div class="background-image"></div>
+
+<div class="container">
+    <div class="main">
+        <div class="text">
+            <h2><span>02</span>Meet your crew</h2>
+            <div class="text-role">
+                <h2>{{role}}</h2>
+            </div>
+            <div class="text-name">
+                <h2>{{crewMemberName}}</h2>
+            </div>
+            <div class="text-bio">
+                <p>{{bio}}</p>
+            </div>
+            <div class="buttons">
+                <button (click)="getCrewData(0)"></button>
+                <button (click)="getCrewData(1)"></button>
+                <button (click)="getCrewData(2)"></button>
+                <button (click)="getCrewData(3)"></button>
+            </div>
+        </div>
+        <div class="img">
+            <img [src]="imageDirection" alt="crew member">
+        </div>
+    </div>
+</div>

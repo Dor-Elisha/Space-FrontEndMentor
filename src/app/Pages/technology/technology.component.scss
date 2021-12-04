@@ -1,0 +1,17 @@
+.background-image {
+    position:fixed;
+    left: 0;
+    top: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url("../../../assets/technology/background-technology-tablet.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    z-index: -1;
+    @media (min-width: 1024px) {
+    background-image: url("../../../assets/technology/background-technology-desktop.jpg");
+    }
+}

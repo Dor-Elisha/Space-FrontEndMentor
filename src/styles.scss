@@ -1,6 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-
+html {
+    font-size: 16px;
+}
+*,
+*::after,
+*:before {
+    box-sizing: border-box;
+}
 body {
     color: white;
     overflow-x: hidden;
+    margin-bottom: unset;
 }
