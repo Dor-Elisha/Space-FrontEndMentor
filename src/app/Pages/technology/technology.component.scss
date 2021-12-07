@@ -5,7 +5,8 @@ $btns-font : "Bellefair", sans-serif;
 $p-font : "Barlow", sans-serif;
 $text-clr: #D0D6F9;
 
-$break-2: "(min-width: 768px) and (max-width: 1023px)";
+// $break-1: "(max-width: 767px)";
+$break-2: "(max-width: 1023px)";
 $break-3: "(min-width:1024px)";
 
 @mixin normal-font() {
@@ -80,6 +81,7 @@ h3 {
             .text-subtitle {
                 font-family: $subtitle-font; 
                 text-transform: uppercase;
+                white-space: nowrap;
             }
             .text-p {
                 font-family: $p-font; color: $text-clr;
@@ -89,7 +91,7 @@ h3 {
 }
 
 // media quary
-@media #{$break-2} {
+@media #{$break-2}  {
     .container {
         .title {
             margin-bottom: 2rem;
@@ -188,7 +190,6 @@ h3 {
                 }
                 .text-subtitle {
                     font-size: clamp(3rem, 4vw, 4rem);
-                    white-space: nowrap;
                 }
                 .text-p {
                     width: clamp(22rem, 90%, 60rem);
