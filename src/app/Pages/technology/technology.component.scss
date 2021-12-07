@@ -1,3 +1,22 @@
+// variables
+$title-font: "Barlow Condensed", sans-serif;
+$subtitle-font: "Bellefair", sans-serif;
+$btns-font : "Bellefair", sans-serif;
+$p-font : "Barlow", sans-serif;
+$text-clr: #D0D6F9;
+
+$break-2: "(min-width: 768px) and (max-width: 1023px)";
+$break-3: "(min-width:1024px)";
+
+@mixin normal-font() {
+    font-style: normal;
+    font-weight: normal;
+}
+// reset style
+h3 {
+    margin: unset;
+}
+// Basic Style 
 .background-image {
     position:fixed;
     left: 0;
@@ -13,5 +32,174 @@
     z-index: -1;
     @media (min-width: 1024px) {
     background-image: url("../../../assets/technology/background-technology-desktop.jpg");
+    }
+}
+
+.container {
+    width: 100vw;
+    display: grid;
+
+    .title {
+       >h2 {
+           font-family: $title-font; 
+           letter-spacing:.2rem;
+           @include normal-font();
+           text-transform: uppercase;
+
+           >span{
+               color: grey;
+               font-weight: bold;
+               margin-inline-end: .75rem;
+           }
+       }
+    }
+    .section {
+        .btns {
+            display: flex;
+            
+            >button {
+                font-size: 1.5rem; font-family: $btns-font;
+                
+                color: white;
+                background-color: transparent;
+                padding: .75rem 1.325rem;
+                border: grey solid 1px;
+                border-radius: 50%;
+
+            }
+        }
+        .section-text {
+            .text-title,
+            .text-subtitle {
+                @include normal-font();
+            }
+            .text-title {
+                font-family: $title-font;  color: $text-clr; 
+                letter-spacing: .2rem;
+            }
+            .text-subtitle {
+                font-family: $subtitle-font; 
+                text-transform: uppercase;
+            }
+            .text-p {
+                font-family: $p-font; color: $text-clr;
+            }
+        }
+    }
+}
+
+// media quary
+@media #{$break-2} {
+    .container {
+        .title {
+            margin-bottom: 2rem;
+            
+            >h2 {
+                padding-inline-start: 2rem;
+            }
+        }
+        
+        .img {
+            margin-bottom: 3rem;
+
+            >img {
+                width: calc(100% + 8px);
+                position: relative;
+                left: -8px;
+            }
+        }
+        .section {
+            width: 70%;
+            margin: 0 auto;
+
+            .btns {
+                width: 15rem;
+                margin: 0 auto 2rem auto;
+                justify-content: space-evenly;
+            }
+            .section-text {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+
+                .text-title {
+                    font-size: clamp(.9rem, 1.3vw, 1.5rem);
+                }
+                .text-subtitle {
+                    font-size: clamp(3rem, 4vw, 4.5rem);
+                }
+                .text-p {
+                    // width: clamp(30rem, 40vw, 35rem);
+                    font-size: clamp(1rem, 1.2vw, 1.5rem);
+                    line-height: 2rem;
+                    margin-bottom: 4rem;
+                }
+            }
+        }
+    }
+    .pc {
+        display: none;
+    }
+}
+
+@media #{$break-3} {
+    .container {
+        grid-template-areas:
+        "title title"
+        "section img"
+        ;
+        padding-inline-start: 10rem;
+        
+        .title {
+            grid-area: title;
+            >h2 {
+                font-size: clamp(1.225rem, 2vw, 2rem );
+                
+            }
+        }
+        .img {
+            grid-area: img;
+            
+        }
+        .section {
+            grid-area: section;
+            display: grid;
+            grid-template-areas: "btn text";
+            padding-block: 4rem;
+
+            .btns {
+                grid-area: btn;
+                flex-direction: column;
+                justify-content:space-around;
+
+                >button {
+                    font-size: 3rem;
+                    padding: 1rem 2rem;
+
+                }
+            }
+            .section-text {
+                grid-area: text;
+                padding-inline: clamp(5rem, 8vw, 10rem);
+
+                .text-title {
+                    font-size: clamp(.8rem, 1vw, 1rem);
+                }
+                .text-subtitle {
+                    font-size: clamp(3rem, 4vw, 4rem);
+                    white-space: nowrap;
+                }
+                .text-p {
+                    width: clamp(22rem, 90%, 60rem);
+                    font-size: clamp(1rem, 1vw, 1.4rem);
+                    line-height: 3rem;
+                }
+            }
+
+        }
+    }
+    .tablet {
+        display: none;
     }
 }

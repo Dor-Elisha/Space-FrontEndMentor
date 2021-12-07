@@ -5,7 +5,8 @@
         <h2><span>03</span>Space launch 101</h2>
     </div>
     <div class="img">
-        <img [src]="imageDirectionL" alt="technology">
+        <img class="tablet"[src]="imageDirectionL" alt="technology">
+        <img class="pc"[src]="imageDirectionP" alt="technology">
     </div>
     <div class="section">
         <div class="btns">
@@ -13,5 +14,11 @@
             <button (click)="getNum(1)">2</button>
             <button (click)="getNum(2)">3</button>
         </div>
+        <div class="section-text">
+            <h2 class="text-title">THE TERMINOLOGY…</h2>
+            <h3 class="text-subtitle">{{name}}</h3>
+            <p class="text-p">{{description}}</p>
+        </div>
+
     </div>
 </div>

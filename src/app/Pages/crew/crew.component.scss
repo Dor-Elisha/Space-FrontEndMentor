@@ -136,7 +136,7 @@ $p-color: #D0D6F9;
                     text-align: start;
                     min-height: 18rem;
                     >p {
-                        font-size: 1rem;
+                        font-size: clamp(1rem, 1vw, 1.2rem);
                         line-height: 3rem;
                         margin-block: unset;
                     }
@@ -159,11 +159,4 @@ $p-color: #D0D6F9;
         }
     }
 }
-@media (min-width: 1264px) {
-    .text-bio {
-        
-        >p {
-            font-size: clamp(.7rem, 1vw, 1.2rem);
-        }
-    }
-}
+
