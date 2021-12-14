@@ -1,0 +1,205 @@
+.background-image {
+    position:fixed;
+    left: 0;
+    top: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url("../../../assets/destination/background-destination-desktop.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    z-index: -1;
+}
+
+.container{
+    width: 80vw;
+    max-height: calc(100vh -  9.5rem);
+    // margin-top: clamp(9rem, 20vh, 18rem);
+    margin-inline: auto;
+    // margin: 8.5rem auto 0 auto;
+    display: grid;
+
+    margin-bottom: 2rem;
+    
+    > h2{
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: normal;
+        font-size: clamp(1.5em, 2vw, 5rem);
+        text-transform: uppercase;
+        letter-spacing: .2em;
+        
+        margin-bottom: 1em;
+        span{
+            color: grey;
+            font-weight: bold;
+            margin-inline-end: 1rem
+        }
+    }
+    .main {
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(23.05em, 1fr));
+        
+        
+        
+        .planet {
+            width: 100%;
+            padding-top: 2em;
+            .planet-img {
+                display: grid;
+                place-content: center;
+                // width: clamp(16.5rem, calc(100% - 4rem) , 50rem )  ;
+
+                >img {
+                    width: clamp(18.75rem, 25vw, 40rem);
+                }
+            }
+        
+        }
+        .planet-info{
+            display: grid;
+            align-items: center;
+            grid-template-columns: 100%;
+
+            padding-inline-start: 7.5rem;
+
+            
+            .planet-info--navbar {
+                display: flex;
+                gap: 1.5vw;
+                margin-bottom:2em;
+                button {
+                    color: #D0D6F9;
+                    font-family: "Barlow Condensed", sans-serif;
+                    font-weight: normal;
+                    font-size: clamp(.5em, 1vw, 3em);
+                    letter-spacing: .17em; 
+                    text-transform: uppercase;
+                    background: none;
+                    border: none;
+                    
+                    &:hover {
+                        color: white;
+                    }
+                }
+            }
+            .planet-info--title > h2 {
+                font-family: "Bellefair" , sans-serif;
+                font-weight: normal;
+                font-size: clamp(2.5em,6.25vw, 13rem);
+                text-transform: uppercase;
+
+                display: inline;
+            }
+            .planet-info--text  {
+                height: clamp(8rem, 13vw, 20rem);
+                >p{
+                    font-family: "Barlow" , sans-serif;
+                    font-weight: normal;
+                    font-size: clamp(.75em, 1.125vw, 2em);
+                    line-height: 2em;
+                    color: #D0D6F9;
+                }
+            }
+            .planet-info--details { 
+                display: grid;
+                grid-template-columns: 50% 50%;
+
+                position: relative;
+
+                &::before{
+                    content: "";
+                    border-top: 2px solid #383B4B;
+                    width: 100%;
+                    position: absolute;
+                    top: -1rem;
+                }   
+                .details {
+                    text-transform: uppercase;
+                    display:grid;
+                    grid-template-rows: auto auto;
+
+                    >p {
+                        &:first-of-type {
+                            font-family: "Barlow Condensed" , sans-serif;
+                            font-weight: normal;
+                            font-size: clamp(.3em, 1vw, 2em);
+                            letter-spacing: .15em;      
+                            color: #D0D6F9;
+                        }
+                        &:last-of-type {
+                            font-family: "Bellefair", sans-serif;
+                            font-weight: normal;
+                            font-size: clamp(.1em, 1.7vw, 3em);
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .background-image {
+        background-image: url("../../../assets/destination/background-destination-mobile.jpg");
+    } 
+    .container{
+        max-height: none;
+
+        >h2{
+            font-size:clamp(1em, 2.5vw, 3em)
+        }
+        .main {
+
+            .planet {
+                .planet-img {
+                    >img {
+                        margin-bottom: 2.5rem;
+                    }
+                }
+            }
+            .planet-info {
+                justify-items: center;
+                padding-inline-start: initial;
+
+                .planet-info--navbar >button {
+                    font-size: clamp(.7em, 2.5vw, 2em);
+                }
+                .planet-info--title > h2 {
+                    font-size: clamp(3em, 10.5vw, 10em)
+                }
+                .planet-info--text {
+                // height: clamp(3rem, 17vh, 20em);
+                height:fit-content;
+                margin-bottom: 2em;
+
+                    >p {
+                        font-size: clamp(.7em, 2vw, 2em);
+                        text-align: center;
+                    }
+                }
+                .planet-info--details {
+                    width: 100%;
+                    margin-bottom: 1.5em;
+                    .details{
+                        justify-items: center;
+                        
+                        >p{
+                            &:first-of-type{
+                                font-size:clamp(.5em, 2.2vw, 3em);
+                            }
+                            &:last-of-type{
+                                font-size:clamp(.5em, 4vw, 3em);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

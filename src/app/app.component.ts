@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Space-FrontEndMentor';
+
+  navBarVisibility: boolean = false;
+
+  toggleNavBar():void {
+    this.navBarVisibility = !this.navBarVisibility;
+  }
 }

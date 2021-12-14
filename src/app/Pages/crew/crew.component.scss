@@ -1,12 +1,25 @@
+// variables 
 $title-font: "Barlow Condensed", sans-serif;
-$main-font : "Bellefair", sans-serif;
+$subtitle-font: "Bellefair", sans-serif;
 $p-font : "Barlow", sans-serif;
+$text-clr: #D0D6F9;
 
-$p-color: #D0D6F9;
+$break-1: "(max-width: 1023px)";
+$break-2: "(min-width: 768px) and (max-width: 1023px)";
+$break-3: "(min-width: 1024px)";
+
 @mixin normal-font() {
     font-style: normal;
     font-weight: normal;
 }
+// reset style 
+    h2 {
+        margin: 0;
+    }
+    p {
+        margin: 0;
+    }
+// basic style 
 .background-image {
     position:fixed;
     left: 0;
@@ -20,143 +33,234 @@ $p-color: #D0D6F9;
     background-size: cover;
 
     z-index: -1;
-    @media (min-width: 1024px) {
-    background-image: url("../../../assets/crew/background-crew-desktop.jpg");
+    @media #{$break-3} {
+        background-image: url("../../../assets/crew/background-crew-desktop.jpg");
+
+    }
+}
+
+.title {
+    >h2{
+        font-family: $title-font;
+        letter-spacing: .2rem;
+        @include normal-font();
+        text-transform: uppercase;
+        >span {
+            color: grey;
+            font-weight: bold;
+            padding-inline-end: .75rem;
+        }
     }
 }
 .container {
-    width: 90vw;
-    margin: 0 auto;
+    width: 100%;
 
-    .main{
+    .main {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(28.8rem, 1fr));
-        justify-items: center;
-        min-height: calc(100vh - (18vh + 8px));
-        
+
         .text {
-            display: grid;
-            justify-items: center;
-            width: 100%;
-            
-            >h2{
-                justify-self: start;
-                font-family: $title-font;
-                @include normal-font();
-                text-transform: uppercase;
-                letter-spacing: 0.2rem;
-                margin: 0 0 2rem 0;
-                >span {
-                    color: grey;
-                    font-weight: bold;
-                    margin-inline-end: .75rem;
+            .text-role {
+                >h2 {
+                    font-family: $subtitle-font;
+                    text-transform: uppercase;
+                     opacity: .5;
+                    @include normal-font();
                 }
             }
-            .text-role{
-                >h2{
-                    color: grey;
-                    
-                    font-size: 1.75rem;
-                    font-family: $main-font;
+            .text-name {
+                >h2 {
+                    font-family: $subtitle-font;
                     @include normal-font();
                     text-transform: uppercase;
-                    margin: .5rem 0;
                 }
             }
-            .text-name{
-                >h2{
-                    font-size: 3rem;
-                    text-transform: uppercase;
-                    font-family: $main-font;
-                    @include normal-font();
-                    margin: 0;
-                }
-            }
-            .text-bio{
-                text-align: center;
-                width: clamp(32rem, 90%, 42rem);
-                min-height: 7rem;
-                >p{
-                    font-size: 1.1rem;
+            .text-bio {
+                >p {
                     font-family: $p-font;
-                    line-height: 1.5rem;
-                    color: $p-color;
+                    color: $text-clr;
+     
                 }
             }
-            .buttons {
+       }
+    }
+}
+// media quary 
+@media #{$break-1} {
+    .title {
+        >h2 {
+            padding-inline-start: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+    .container {
+        .main {
+            grid-template-areas:
+            "img"
+            "text"
+            ;
+            .img {
+                grid-area: img;
                 display: flex;
-                width: 6rem;
-                justify-content: space-between;
-                margin-bottom: 2rem;
-                >button {
-                    padding: .4rem .4rem;
-                    border-radius: 50%;
-                    border: none;
-                    background-color: grey;
-                    opacity: .6;
-                    &:hover {
+                justify-content: center;
+                margin-bottom: 3rem;
+                position: relative;
+                &:after {
+                    content: " ";
+                    width: 80%;
+                    border: 1px grey solid;
+                    position: absolute;
+                    opacity: .3;
+                    bottom: 0;
+                }
+                >img {
+                    width: clamp(17rem,50vw,20rem);
+
+                }
+            }
+            .text {
+                grid-area: text;
+                display: grid;
+                justify-items: center;
+                grid-template-areas:"btns";
+
+                .buttons{
+                    grid-area:btns;
+                    width: 10rem;
+                    display: flex;
+                    justify-content: space-around;
+
+                    margin-bottom: 2rem;
+
+                    >button {
+                        padding: clamp(.4rem, 1vw, .5rem);
+                        border-radius: 50%;
                         background-color: white;
-                        opacity: none;
+                        border: 0;
+                        opacity: .3;
+
+                        &:hover {
+                            opacity: .6;
+                        }
+                    }
+                }
+                .text-role {
+                    margin-bottom: .5rem;
+                    >h2 {
+                        font-size: clamp(.8rem,3vw,1.2rem);
+                    }
+                }
+                .text-name {
+                    margin-bottom: 1rem;
+                    >h2 {
+                        font-size: clamp(2rem, 6vw ,3rem);
+                    }
+                }
+                .text-bio {
+                    text-align: center;
+                    // width: 37rem;
+                    // width: 27rem;
+                    width: clamp(26rem, 85vw, 37rem);
+
+                    margin-bottom: 2rem;
+                    >p {
+                        font-size: clamp(1.2rem, 3vw ,1.3rem);
+                        line-height: 2.5rem;
                     }
                 }
             }
         }
     }
 }
-@media (min-width: 1024px) {
+@media #{$break-2} {
     .container {
-        width: 75vw;
-
         .main {
+            grid-template-areas:
+            "text"
+            "img"
+            ;
+            
             .text {
-                grid: auto-flow min-content / 1fr;
-                justify-items: start;
-                
-                >h2 {
-                    font-size: clamp(1.225rem, 2vw, 2rem );
-                    margin-block: 0;
-                    margin-bottom: 10rem;
-                }
                 .text-role {
-                    display: flex;
-                    >h2 {
-                        font-size: clamp(1.5rem, 2.2vw, 2.2rem);
-                    
-                    }
-                }
-                .text-name {
-                    margin-bottom: 2rem;
-                    >h2 {
-                        font-size: clamp(3rem, 3.5vw, 4rem);
-                        white-space: nowrap;
+                    >h2{
+                        font-size:clamp(1.5rem, 3vw ,1.8rem);
                     }
                 }
                 .text-bio {
-                    width: clamp(30rem, 35vw, 45rem);
-                    text-align: start;
-                    min-height: 28vh;
-                    >p {
-                        font-size: clamp(1rem, 1vw, 1.2rem);
-                        line-height: 3rem;
-                        margin-block: unset;
+                    width: 40rem;
+                    >p{
+
                     }
                 }
+                .buttons {
+                    grid-area: unset;
+                }
+            }
 
+            .img {
+                margin-bottom: unset;
+                &:after {
+                    content:unset;
+                }
+                >img {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+@media #{$break-3} {
+    .title {
+        padding-inline-start: clamp(5em,8vw,10rem);
+        >h2 {
+            font-size: clamp(1.225rem, 2vw, 2rem );
+        }
+    }
+    .container {
+        .main {
+            padding-inline-start: 15vw;
+            grid-template-columns: 1fr 1fr;
+
+            .text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+
+                .text-role {
+                    >h2 {
+                        font-size: clamp(1.3rem, 2vw, 2rem);
+                    }
+                }
+                .text-name {
+                    >h2 {
+                        font-size: clamp(3rem,4vw,4rem);
+                    }
+                }
+                .text-bio {
+                    width: 30rem;
+                    margin-bottom: max(3rem, 10vh);
+                    >p {
+                        font-size: clamp(1rem , 2vw , 1.3rem);
+                        line-height: 2rem;
+                    }
+                }
                 .buttons {
                     width: 10rem;
-                    align-items: center;
-                    
+                    display: flex;
+                    justify-content: space-between;
                     >button {
-                        padding: .5rem .5rem;
+                        padding: .55rem;
+                        border-radius: 50%;
+                        border: 0;
+                        background-color: white;
+                        opacity: .3;
                     }
                 }
             }
             .img {
                 >img {
-                    height: 100%;;
                 }
             }
         }
     }
 }
-

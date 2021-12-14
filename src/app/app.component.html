@@ -3,7 +3,13 @@
     <img src="assets/shared/logo.svg" alt="logo">
   </div>
   
-  <nav>
+  <div class="hamburger-btn">
+    <img (click)="toggleNavBar()" src="assets/shared/icon-hamburger.svg" alt="icon-hamburger" >
+  </div>
+  
+  <nav [attr.data-visibility]="navBarVisibility">
+    <img (click)="toggleNavBar()" src="assets/shared/icon-close.svg" alt="icon-close">
+
     <ul>
       <li>
           <a routerLink='/' routerLinkActive="active"><span>00</span>Home</a>
@@ -20,9 +26,5 @@
     </ul>
   </nav>  
 </header>
-
-    
-  
-
 
 <router-outlet></router-outlet>
