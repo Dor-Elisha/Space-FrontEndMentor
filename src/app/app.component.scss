@@ -48,6 +48,7 @@ header {
                     font-family: $nav-font;
                     text-transform: uppercase;
                     letter-spacing: .2rem;
+                    position: relative;
                     >span{
                         padding-inline-end: .5rem;
                         font-weight: bold;
@@ -55,6 +56,17 @@ header {
                 }
             }
         }
+    }
+}
+
+.active {
+    &:after {
+        content: " ";
+        width: 100%;
+        border: 2px white solid;
+        position: absolute;
+        left: 0;
+        bottom: -2.75rem;
     }
 }
 // media queries 
@@ -92,6 +104,12 @@ header {
         }
         >nav[data-visibility="true"] {
             transform: translateX(0%);
+        }
+    }
+    .active {
+        &:after {
+            content:unset;
+            
         }
     }
 }

@@ -70,6 +70,10 @@ h3 {
                 border: grey solid 1px;
                 border-radius: 50%;
 
+                &:hover {
+                    border-color: white
+                }
+
             }
         }
         .section-text {

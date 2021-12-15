@@ -70,6 +70,11 @@ $break-3: "(min-width: 1024px)";
                     @include normal-font();
                     text-transform: uppercase;
                     color: $text-clr;
+
+                    &:hover {
+                        opacity: .7;
+                    }                    
+
                 }
             }
             .planet-info--title {
@@ -308,7 +313,7 @@ $break-3: "(min-width: 1024px)";
                     margin-bottom: 2rem;
                     >p {
                         position: relative;
-                        font-size: clamp(.8rem, 1.5vw, 1.125rem);
+                        font-size: clamp(.8rem, 1.5vw, 1.12rem);
                         line-height: 3rem;
                         margin-bottom: 4rem;
 

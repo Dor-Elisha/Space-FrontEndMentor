@@ -254,6 +254,10 @@ $break-3: "(min-width: 1024px)";
                         border: 0;
                         background-color: white;
                         opacity: .3;
+
+                        &:hover {
+                            opacity: .7;
+                        }
                     }
                 }
             }
