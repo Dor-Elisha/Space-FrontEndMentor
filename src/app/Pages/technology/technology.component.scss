@@ -5,18 +5,15 @@ $btns-font : "Bellefair", sans-serif;
 $p-font : "Barlow", sans-serif;
 $text-clr: #D0D6F9;
 
-$break-1: "(max-width 767px)";
+$break-1: "(max-width: 767px)";
 $break-2: "(max-width: 1023px)";
-$break-3: "(min-width:1024px)";
+$break-3: "(min-width: 1024px)";
 
 @mixin normal-font() {
     font-style: normal;
     font-weight: normal;
 }
 // reset style
-h2 {
-    margin-block: 0;
-}
 h3 {
     margin: unset;
 }
@@ -69,10 +66,6 @@ h3 {
                 padding: .75rem 1.325rem;
                 border: grey solid 1px;
                 border-radius: 50%;
-
-                &:hover {
-                    border-color: white
-                }
 
             }
         }
@@ -158,13 +151,13 @@ h3 {
         "title title"
         "section img"
         ;
-        padding-inline-start: clamp(5em,8vw,10rem);
+        padding-inline-start: 10rem;
         
         .title {
             grid-area: title;
-            margin-bottom: max(2rem, 8vh);
             >h2 {
                 font-size: clamp(1.225rem, 2vw, 2rem );
+                
             }
         }
         .img {
@@ -194,7 +187,6 @@ h3 {
 
                 .text-title {
                     font-size: clamp(.8rem, 1vw, 1rem);
-                    margin-bottom:1rem;
                 }
                 .text-subtitle {
                     font-size: clamp(3rem, 4vw, 4rem);
